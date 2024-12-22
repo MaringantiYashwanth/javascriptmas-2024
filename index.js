@@ -37,7 +37,7 @@ function checkDuplicate() {
     const itemText = itemInput.value.trim().replace(/\s+/g, " ");
     // 1. Ensure no duplicates can be added to the list.
     // check each item in listArr if it includes the input text from user.
-    const isDuplicate = listArr.some(item => item.localeCompare(itemText, undefined, { sensitivity: 'base' }) == 0);
+    const isDuplicate = listArr.some(item => item.toLowerCase().trim() === itemText);
     if (!listArr.includes(itemText) && !isDuplicate) {
         // if user input isn't there in the list then append it to the list.
         listArr.push(itemText)
